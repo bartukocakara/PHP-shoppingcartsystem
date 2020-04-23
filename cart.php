@@ -33,4 +33,8 @@
         header('location:index.php?page=cart');
         exit;
     }
+    if(isset($_GET['remove']) && is_numeric($_GET['remove']) && isset($_SESSION['remove']) && isset($_SESSION['cart'][$_GET['remove']])){
+        //Remove the product from the sopping cart
+        unset($_SESSION['cart'][$_GET['remove']]);
+    }
 ?>
