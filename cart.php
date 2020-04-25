@@ -78,6 +78,7 @@ if ($products_in_cart) {
     $stmt->execute(array_keys($products_in_cart));
     // Fetch the products from the database and return the result as an Array
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    //print_r($product);
     // Calculate the subtotal
     foreach ($products as $product) {
         $subtotal += (float)$product['price'] * (int)$products_in_cart[$product['id']];
@@ -86,7 +87,6 @@ if ($products_in_cart) {
 ?>
 
 <?=template_header('Cart')?>
-
 <div class="cart content-wrapper">
     <h1>Shopping Cart</h1>
     <form action="index.php?page=cart" method="post">
